@@ -1,0 +1,41 @@
+.polygon1 {
+    position: absolute;
+    width: 656.25px;
+    height: 697.77px;
+    right: -10.48px;
+    top: 0.97px;
+    rotation: 45deg;
+    rotate: 45deg;
+    scale: 0.75;
+
+    background: linear-gradient(180deg, rgba(217, 217, 217, 0.132) 0%, rgba(115, 115, 115, 0) 100%);
+    border-radius: 22px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    z-index: 2;
+
+
+}
+
+.polygon2 {
+    position: absolute;
+    width: 656.25px;
+    height: 697.77px;
+    left: -400.86px;
+    top: 216.69px;
+
+    background: conic-gradient(from 180deg at 50% 50%, rgba(217, 217, 217, 0.13) 0deg, rgba(115, 115, 115, 0) 360deg);
+    border-radius: 15px;
+    transform: rotate(64.14deg);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+    z-index: 3;
+}
+
+/* Add more shapes here with different classes, if needed */
