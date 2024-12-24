@@ -38,4 +38,56 @@
     z-index: 3;
 }
 
-/* Add more shapes here with different classes, if needed */
+.polygon3 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    right: -150px;
+    top: 250px;
+    background: conic-gradient(from 180deg at 50% 50%, rgba(255, 255, 255, 0.2) 0deg, rgba(115, 115, 115, 0) 360deg);
+    border-radius: 50%;
+    transform: rotate(45deg);
+    z-index: 1;
+}
+
+.polygon4 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: -200px;
+    top: 50px;
+    background: linear-gradient(45deg, rgba(100, 100, 100, 0.2), rgba(200, 200, 200, 0.01));
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.polygon5 {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    right: -100px;
+    bottom: 50px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(115, 115, 115, 0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.polygon7 {
+    position: absolute;
+    width: 656.25px;
+    height: 697.77px;
+    left: -200.86px;
+    top: 216.69px;
+
+    background: conic-gradient(from 180deg at 50% 50%, rgba(217, 217, 217, 0.13) 0deg, rgba(115, 115, 115, 0) 360deg);
+    border-radius: 15px;
+    transform: rotate(199.14deg);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+    z-index: 3;
+}
+
+

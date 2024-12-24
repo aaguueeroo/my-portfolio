@@ -3,9 +3,11 @@ import {Box, Button, Chip, Typography} from '@mui/material';
 import {ReactTyped} from 'react-typed';
 import theme from "../../theme";
 import './BackgroundShapes.css';
-import {FaArrowRight, FaDatabase, FaEnvelope, FaFire, FaGithub, FaLinkedin, FaStackOverflow} from 'react-icons/fa';
+import {FaDatabase, FaEnvelope, FaFire, FaGithub, FaLinkedin, FaStackOverflow} from 'react-icons/fa';
 import {SiDart, SiFlutter} from 'react-icons/si';
 import {FaXTwitter} from "react-icons/fa6";
+import AnimatedButton from "../../components/AnimatedButton";
+import {Link} from "react-router-dom";
 
 const SocialIcon = ({href, icon: Icon}: { href: string; icon: React.ElementType; size?: number }) => (
     <a href={href} target="_blank" rel="noopener noreferrer">
@@ -26,7 +28,7 @@ const IntroductionSection = () => {
     return (
         <Box
             component="section"
-            height="100vh"
+            minHeight="100vh"
             display="flex"
             alignItems="center"
             justifyContent="center"
@@ -78,33 +80,6 @@ const SkillChip: React.FC<SkillChipProps> = ({icon, label}) => (
     />
 );
 
-const LearnMoreButton = () => (
-    <Box display="flex" alignItems="center">
-        <Button
-            variant="text"
-            color="primary"
-            endIcon={<FaArrowRight />}
-            disableFocusRipple={true}
-            disableRipple={true}
-            sx={{
-                fontFamily: 'JetBrains Mono',
-                fontSize: '1.2rem',
-                textTransform: 'none',
-                '&:hover': {
-                    backgroundColor: 'transparent',
-                    '& .MuiSvgIcon-root': {
-                        transform: 'translateX(5px)',
-                        transition: 'transform 0.2s ease-in-out',
-                    },
-                },
-                ml: 'auto', // Aligns button to the right
-            }}
-        >
-            LEARN MORE
-        </Button>
-    </Box>
-);
-
 const AboutMeSection = () => (
     <Box
         component="section"
@@ -113,8 +88,9 @@ const AboutMeSection = () => (
         alignItems="center"
         justifyContent="center"
         position="relative"
-        height="100vh"
     >
+        <div className="polygon3"></div>
+        <div className="polygon4"></div>
         <Typography variant="h4" gutterBottom>About Me</Typography>
         <Box
             display="flex"
@@ -151,7 +127,7 @@ const AboutMeSection = () => (
                     <SkillChip icon={<FaDatabase/>} label="SQL"/>
                     <SkillChip icon={<FaGithub/>} label="GitHub"/>
                 </Box>
-                <LearnMoreButton/>
+                <AnimatedButton text={"LEARN MORE"} link={"/about"}/>
             </Box>
         </Box>
 
@@ -160,14 +136,189 @@ const AboutMeSection = () => (
 );
 
 
+interface ProjectCardProps {
+    image: string;
+    title: string;
+    description: string;
+    technologies: string[];
+    link: string;
+    backgroundColor: string;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({
+                                                     image,
+                                                     title,
+                                                     description,
+                                                     technologies,
+                                                     link,
+                                                     backgroundColor,
+                                                 }) => (
+    <Link to={link} style={{textDecoration: 'none', flex: 1}}>
+        <Box
+            bgcolor={backgroundColor}
+            borderRadius="8px"
+            padding="16px"
+            width="100%"
+            height="400px"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            textAlign="center"
+            gap="8px"
+            style={{cursor: 'pointer'}} // No direct `cursor` prop, so style is used
+        >
+            <Box
+                component="img"
+                src={image}
+                alt={title}
+                width="100%"
+                height="150px"
+                borderRadius="8px"
+                sx={{objectFit: 'cover'}}
+            />
+            <Typography
+                variant="h5"
+                noWrap
+                overflow="hidden"
+                textOverflow="ellipsis"
+                width="100%"
+                align='left'
+                color={theme.palette.background.default}
+            >
+                {title}
+            </Typography>
+            <Box textAlign="left" width="100%">
+                <Typography
+                    variant="body1"
+                    overflow="hidden"
+                    textOverflow="ellipsis"
+                    display="-webkit-box"
+                    align="left"
+                    textAlign={"left"}
+                    sx={{
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: 'vertical',
+                    }}
+                    color={theme.palette.background.default}
+                >
+                    {description}
+                </Typography>
+            </Box>
+            <Box
+                display="flex"
+                gap="4px"
+                justifyContent="center"
+                overflow="hidden"
+                flexWrap="wrap"
+                marginTop="auto"
+            >
+                {technologies.map((tech, index) => (
+                    <Chip key={index} label={tech}/>
+                ))}
+            </Box>
+        </Box>
+    </Link>
+);
+
+const SeeMyWorkSection = () => (
+    <Box
+        component="section"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        position="relative"
+        padding="4rem 2rem"
+        mt={32}
+        mb={16}
+    >
+        <div className="polygon7"></div>
+        <div className="polygon5"></div>
+        <Typography variant="h4" gutterBottom>
+            See My Work
+        </Typography>
+        <Box
+            display="flex"
+            gap={4}
+            justifyContent="space-between"
+            width="60%"
+            maxWidth="1200px"
+            mt={4}
+            flexWrap="wrap"
+        >
+            <ProjectCard
+                image="/project1.jpg"
+                title="Project 1"
+                description="Brief description of Project 1 lorem ipsum papapa mamama and this is long text ablablaa."
+                technologies={['React', 'TypeScript', 'Material UI']}
+                link="/portfolio/project1"
+                backgroundColor="#f0f8ff"
+            />
+            <ProjectCard
+                image="/project2.jpg"
+                title="Project 2"
+                description="Brief description"
+                technologies={['Flutter', 'Firebase']}
+                link="/portfolio/project2"
+                backgroundColor="#fffaf0"
+            />
+            <ProjectCard
+                image="/project3.jpg"
+                title="Project 3"
+                description="Brief description of Project 3."
+                technologies={['Dart', 'SQL', 'GitHub']}
+                link="/portfolio/project3"
+                backgroundColor="#f5f5dc"
+            />
+        </Box>
+        <Box mt={4} width="60%" display="flex" justifyContent="flex-end">
+            <AnimatedButton text="GO TO PORTFOLIO" link="/portfolio"/>
+        </Box>
+
+    </Box>
+);
+
+const ContactSection = () => (
+    <Box
+        component="section"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        maxWidth="80%"
+        mx="auto"
+        textAlign="center"
+        mt={32}
+        mb={32}
+    >
+        <Typography variant="h2" color="secondary.main" gutterBottom>
+            Want to work together?
+        </Typography>
+        <Button
+            variant="contained"
+            color="primary"
+            sx={{
+                mt: 2,
+                typography: 'h5',
+                color: theme.palette.secondary.light,
+                fontWeight: 'regular',
+            }}
+        >
+            Contact Me
+        </Button>
+    </Box>
+);
+
 const HomePage = () => {
     return (
         <Box>
             <IntroductionSection/>
             <AboutMeSection/>
+            <SeeMyWorkSection/>
+            <ContactSection/>
         </Box>
     );
-
 }
+
 
 export default HomePage;

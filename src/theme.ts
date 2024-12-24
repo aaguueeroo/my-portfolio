@@ -25,6 +25,11 @@ const theme = createTheme({
             fontWeight: 'bold',
             fontSize: '3rem',
         },
+        h2: {
+            fontFamily: 'JetBrains Mono',
+            fontWeight: 'bold',
+            fontSize: '2.5rem',
+        },
         h3: {
             fontFamily: 'JetBrains Mono',
             fontWeight: 'bold',

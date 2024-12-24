@@ -9,14 +9,15 @@ interface NavButtonProps {
 
 const NavButton: React.FC<NavButtonProps> = ({text, path}) => {
     return (
-        <Link to={path} style={{textDecoration: 'none', fontSize: '1.2rem'}}>
+        <Link to={path} style={{textDecoration: 'none'}}>
             <Button disableFocusRipple={true} disableRipple={true}
                     sx={{
                         color: (theme) => theme.palette.secondary.main,
                         padding: 0,
                         minWidth: 'auto',
+                        fontSize: '1.3rem',
                         ':hover': {
-                            backgroundColor: 'transparent', // Disable hover effect
+                            backgroundColor: 'transparent',
                             color: (theme) => theme.palette.secondary.main,
                         },
                     }}
@@ -27,9 +28,11 @@ const NavButton: React.FC<NavButtonProps> = ({text, path}) => {
     );
 };
 
+
 const Header = () => {
     return (
-        <AppBar position="static" elevation={0} style={{paddingLeft: '16px', paddingRight: '16px'}}
+        <AppBar position="static" elevation={0}
+                style={{paddingLeft: '16px', paddingRight: '16px', marginBottom: '8px', marginTop: '8px'}}
                 sx={{backgroundColor: (theme) => theme.palette.background.default}}>
             <Toolbar>
                 <Typography variant="h5" sx={{flexGrow: 1}}>
