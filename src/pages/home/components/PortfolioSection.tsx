@@ -1,63 +1,18 @@
-import { Box, Button, Theme, Typography } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
-const useStyles = (theme: Theme) => ({
-  section: {},
-  box: {
-    padding: "128px 128px",
-    display: "flex",
-    height: "30vh",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "24px",
-    maxWidth: "1440px",
-    alignSelf: "center",
-    backgroundImage: "url('https://picsum.photos/seed/picsum/200/300')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  },
-  button: {
-    padding: '8px 32px',
-    color: 'white',
-    fontWeight: 'bold',
-    lineHeight: 1.2,
-    '& .MuiSvgIcon-root': {
-      fontSize: '2.5rem',
-      color: theme.palette.primary.main,
-    },
-    gap: 4,
-    bgcolor: theme.palette.secondary.main,
-    transition: 'all 0.3s ease-in-out',
-    '&:hover': {
-      transform: 'scale(1.05)',
-      bgcolor: theme.palette.primary.main,
-      '& .MuiSvgIcon-root': {
-        color: theme.palette.secondary.main
-      }
-    }
-  },
-});
-
 const PortfolioSection = () => {
-  const theme = useTheme();
-  const classes = useStyles(theme);
-
   return (
-    <Box sx={{ ...classes.box }}>
-      <Typography variant="h1" textAlign={"start"}>
-        Get to know my work
-      </Typography>
-      <Button
-        variant="contained"
-        endIcon={<ArrowForwardIcon />}
-        sx={{ ...classes.button }}
-      >
-        See projects
-      </Button>
-    </Box>
-  );
-};
+    <section
+      className="py-32 px-8 md:px-32 flex h-[30vh] flex-col items-center justify-center gap-6 max-w-[1440px] mx-auto bg-cover bg-center"
+      style={{ backgroundImage: "url('https://picsum.photos/seed/picsum/200/300')" }}
+    >
+      <h2 className="text-4xl md:text-5xl font-bold text-center">Get to know my work</h2>
+      <button className="px-8 py-3 bg-gray-800 text-white font-bold rounded-lg flex items-center gap-2 hover:scale-105 hover:bg-blue-600 transition-all duration-300">
+        <span>See projects</span>
+        <svg className="w-6 h-6" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+        </svg>
+      </button>
+    </section>
+  )
+}
 
-export default PortfolioSection;
+export default PortfolioSection

@@ -1,55 +1,27 @@
-import Navbar from "../../components/Navbar";
-import { Footer } from "../../components/Footer";
-import WhoAmISection from "./components/WhoAmISection";
-import PortfolioSection from "./components/PortfolioSection";
-import { WhatDoIOfferSection } from "./components/WhatDoIOfferSection";
-import { LetsGetInTouchSection } from "./components/LetsGetInTouchSection";
-import { makeStyles } from "@mui/styles";
-import { Box } from "@mui/material";
-import HeroSection from "./components/HeroSection";
-
-const useStyles = makeStyles(() => ({
-  container: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  wrapper: {
-    width: "100%",
-    maxWidth: "2000px",
-  },
-  verticalHeight: {
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-}));
+import Navbar from "../../components/Navbar"
+import { Footer } from "../../components/Footer"
+import WhoAmISection from "./components/WhoAmISection"
+import PortfolioSection from "./components/PortfolioSection"
+import { WhatDoIOfferSection } from "./components/WhatDoIOfferSection"
+import { LetsGetInTouchSection } from "./components/LetsGetInTouchSection"
+import HeroSection from "./components/HeroSection"
 
 const HomePage = () => {
-  const classes = useStyles();
-
   return (
-    <>
-      <Box className={classes.container}>
-        <Box className={classes.wrapper}>
-          <Box className={classes.verticalHeight}>
-            <Navbar />
-            <HeroSection />
-          </Box>
-          <WhoAmISection />
-          <PortfolioSection />
-          <WhatDoIOfferSection />
-          <LetsGetInTouchSection />
-          <Footer />
-        </Box>
-      </Box>
-    </>
-  );
-};
+    <div className="w-full flex flex-col justify-center items-center">
+      <div className="w-full max-w-[2000px]">
+        <div className="h-screen flex flex-col w-full justify-center items-center">
+          <Navbar />
+          <HeroSection />
+        </div>
+        <WhoAmISection />
+        <PortfolioSection />
+        <WhatDoIOfferSection />
+        <LetsGetInTouchSection />
+        <Footer />
+      </div>
+    </div>
+  )
+}
 
-export default HomePage;
+export default HomePage
