@@ -1,84 +1,34 @@
-import { Container, Typography, Card, useTheme } from "@mui/material";
-import { Theme } from "@mui/material/styles";
-
-const useStyles = (theme: Theme) => ({
-  section: {
-    padding: "166px 64px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "24px",
-  },
-  mainCard: {
-    height: 500,
-    backgroundColor: "#fff",
-  },
-  cardsRow: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    gap: "24px",
-  },
-  smallCard: {
-    height: 300,
-    backgroundColor: "#fff",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
-
-
 const WhoAmISection = () => {
-  const theme = useTheme();
-  const classes = useStyles(theme);
-
   return (
-    <Container sx={{...classes.section}}>
-      <Typography variant="h1" align="center" gutterBottom>
-        Who am I?
-      </Typography>
-      
-      <Card sx={{...classes.mainCard}}>
-        <Typography variant="body1" padding={3}>
-          I'm a software engineer with a passion for web development. I have
-          experience in building web applications using React, Angular, and
-          Vue. I'm also familiar with backend technologies like Node.js,
-          Express, and MongoDB. I'm always looking for new challenges and
-          opportunities to learn and grow.
-        </Typography>
-      </Card>
+    <section className="container mx-auto px-4 py-40 flex flex-col items-center justify-center gap-6">
+      <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">Who am I?</h2>
 
-      <Container sx={{...classes.cardsRow}}>
-        <Card sx={{...classes.smallCard}}>
-          <Typography variant="h4" textAlign={"center"}>
-            +4
-          </Typography>
-          <Typography variant="body1" textAlign={"center"}>
-            years experience
-          </Typography>
-        </Card>
+      <div className="w-full bg-white rounded-lg shadow-lg p-8 h-[500px] flex items-center">
+        <p className="text-lg text-gray-700">
+          I'm a software engineer with a passion for web development. I have experience in building web applications using React, Angular, and Vue.
+          I'm also familiar with backend technologies like Node.js, Express, and MongoDB. I'm always looking for new challenges and opportunities to
+          learn and grow.
+        </p>
+      </div>
 
-        <Card sx={{...classes.smallCard}}>
-          <Typography variant="h4" textAlign={"center"}>
-            +8000
-          </Typography>
-          <Typography variant="body1" textAlign={"center"}>
-            hours of coding
-          </Typography>
-        </Card>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+        <div className="bg-white rounded-lg shadow-lg p-8 h-[300px] flex flex-col items-center justify-center">
+          <h3 className="text-3xl font-bold text-center mb-2">+4</h3>
+          <p className="text-lg text-gray-700 text-center">years experience</p>
+        </div>
 
-        <Card sx={{...classes.smallCard}}>
-          <Typography variant="h4" textAlign={"center"}>
-            +20
-          </Typography>
-          <Typography variant="body1" textAlign={"center"}  >
-            projects completed          </Typography>
-        </Card>
-      </Container>
-    </Container>
-  );
-};
+        <div className="bg-white rounded-lg shadow-lg p-8 h-[300px] flex flex-col items-center justify-center">
+          <h3 className="text-3xl font-bold text-center mb-2">+8000</h3>
+          <p className="text-lg text-gray-700 text-center">hours of coding</p>
+        </div>
 
-export default WhoAmISection;
+        <div className="bg-white rounded-lg shadow-lg p-8 h-[300px] flex flex-col items-center justify-center">
+          <h3 className="text-3xl font-bold text-center mb-2">+20</h3>
+          <p className="text-lg text-gray-700 text-center">projects completed</p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default WhoAmISection

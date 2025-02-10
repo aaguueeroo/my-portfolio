@@ -1,85 +1,26 @@
-import { Theme, useTheme } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import { Button } from "@mui/material";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { makeStyles } from "@mui/styles";
- 
-const useStyles = makeStyles((theme: Theme) => ({
-  heroWrapper: {
-    flex: 1,
-    flexGrow: 1,
-    width: "100%",
-    padding: "0",
-    margin: "0",
-    overflow: "hidden",
-  },
-  heroBackground: {
-    width: "100%",
-    height: "100%",
-    padding: "0",
-    margin: "0",
-    position: "absolute",
-    backgroundImage: "url('src/assets/images/hero.png')",
-    backgroundAttachment: "fixed",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    zIndex: 1,
-    overflow: "hidden",
-  },
-  column: {
-    flex: 1,
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    zIndex: 2,
-  },
-  title: {
-    color: theme.palette.secondary.main,
-    fontWeight: 700,
-    textAlign: "left",
-  },
-  subtitle: {
-    color: theme.palette.secondary.main,
-    fontWeight: 700,
-    textAlign: "left",
-  },
-  titleEmphasis: {
-    color: theme.palette.primary.main,
-    fontWeight: 700,
-    textAlign: "left",
-  },
-  
-}));
-
 const HeroSection = () => {
-  const theme = useTheme();
-  const classes = useStyles(theme);
-
   return (
-    <Box className={classes.heroWrapper}>
-      <Box className={classes.heroBackground} />
-      <Box className={classes.column}>
-        <Typography variant="h1" className={classes.title} gutterBottom>
-          Get a premium app{" "}
-          <span className={classes.titleEmphasis}>fast and easy</span>
-        </Typography>
-        <Typography variant="body1" className={classes.subtitle} gutterBottom>
-          Share your vision, values and personality --I'll turn them into an app
-          that truly represents you.
-        </Typography>
-        <Button
-          variant="contained"
-          color="secondary"
-          endIcon={<ArrowForwardIcon color="primary" />}
-        >
-          Get a budget for free
-        </Button>
-      </Box>
-    </Box>
-  );
-};
+    <div className="flex-1 w-full p-0 m-0 overflow-hidden relative min-h-screen">
+      <div
+        className="w-full h-full p-0 m-0 absolute bg-center bg-cover bg-fixed z-10 overflow-hidden"
+        style={{ backgroundImage: "url('src/assets/images/hero.png')" }}
+      />
+      <div className="flex-1 relative flex flex-col justify-center items-start z-20 p-8 min-h-screen">
+        <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
+          Get a premium app <span className="text-blue-600">fast and easy</span>
+        </h1>
+        <p className="text-xl md:text-2xl font-bold text-gray-800 mb-8">
+          Share your vision, values and personality --I'll turn them into an app that truly represents you.
+        </p>
+        <button className="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors flex items-center space-x-2">
+          <span>Get a budget for free</span>
+          <svg className="w-5 h-5" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  )
+}
 
-export default HeroSection;
+export default HeroSection
