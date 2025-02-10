@@ -113,7 +113,7 @@ let theme = createTheme({
     body1: {
       fontSize: "2.5rem",
       fontWeight: 400,
-      height: "58px",
+      lineHeight: 1.5,
       fontFamily: ["Golos Text", "sans-serif"].join(","),
       
     },
